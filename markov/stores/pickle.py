@@ -1,4 +1,4 @@
-import pickle
+from . import pickle
 from os.path import exists
 
 from markov.markov import Word
@@ -13,7 +13,7 @@ class Pickle(Store):
             try:
                 self.store = pickle.load(open(self.path, 'br'))
             except EOFError:
-                print('Couldn\'t find data in', self.path)
+                print(('Couldn\'t find data in', self.path))
 
     def commit(self):
         pickle.dump(self.store, open(self.path, 'bw+'))
@@ -34,7 +34,7 @@ class Pickle(Store):
     def next_words(self, target_word):
         return [
             Word(word, score)
-            for word, score in self.store.get(target_word, {}).items()
+            for word, score in list(self.store.get(target_word, {}).items())
         ]
 
     def clear(self):

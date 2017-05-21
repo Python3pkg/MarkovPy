@@ -1,1 +1,1 @@
-from markov.markov import MarkovPy
+from .markov.markov import MarkovPy

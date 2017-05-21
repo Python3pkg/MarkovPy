@@ -1,5 +1,5 @@
 import pytest
-from markov.markov import is_smiley, prepare_line, re_url
+from .markov.markov import is_smiley, prepare_line, re_url
 
 
 @pytest.mark.parametrize('possible_smiley,expected', [

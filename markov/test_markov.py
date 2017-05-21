@@ -1,6 +1,6 @@
 import pytest
-from markov import MarkovPy
-from markov.stores import Redis
+from .markov import MarkovPy
+from .markov.stores import Redis
 
 
 @pytest.fixture

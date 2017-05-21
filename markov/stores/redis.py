@@ -1,4 +1,4 @@
-import redis
+from . import redis
 from markov.markov import Word
 from markov.stores import Store
 
@@ -49,7 +49,7 @@ class Redis(Store):
     def next_words(self, word):
         return [
             Word(w.decode('utf-8'), int(score))
-            for w, score in self.db.hgetall(self._key(word)).items()
+            for w, score in list(self.db.hgetall(self._key(word)).items())
         ]
 
     def clear(self):

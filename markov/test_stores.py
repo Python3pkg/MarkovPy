@@ -1,7 +1,7 @@
 from os import remove
 
 import pytest
-from markov.stores import Pickle, Redis
+from .markov.stores import Pickle, Redis
 
 
 def clear_store(store):
